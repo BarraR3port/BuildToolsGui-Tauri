@@ -1,0 +1,103 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeBuildCommand": "yarn run build && yarn run export",
+    "beforeDevCommand": "yarn run dev",
+    "devPath": "http://localhost:3000",
+    "distDir": "../out",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "BuildToolsGui",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true,
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "createDir": true,
+        "readDir": true,
+        "readFile": true,
+        "writeFile": true,
+        "exists": true,
+        "renameFile": true,
+        "removeFile": true,
+        "scope": [
+          "$APPDATA/**"
+        ]
+      },
+      "http": {
+        "all": true,
+        "request": true,
+        "scope": [
+          "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
+        ]
+      },
+      "shell": {
+        "all": true,
+        "scope": [
+          {
+            "name": "java",
+            "cmd": "java",
+            "args": ["-jar",{ "validator": "\\S+" }, "--rev", {"validator": "\\S+"}, "--output-dir", {"validator": "\\S+"}]
+          }
+        ]
+      }
+
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "BuildToolsGui",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "label": "main",
+        "resizable": true,
+        "center": true,
+        "title": "Build Tools",
+        "decorations": true,
+        "transparent": true,
+        "fileDropEnabled": false,
+        "theme": "Dark"
+      }
+    ]
+  }
+}

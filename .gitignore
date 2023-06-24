@@ -33,3 +33,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/src-tauri/BuildTools.log.txt
+/src-tauri/work/
+/src-tauri/CraftBukkit/
+/src-tauri/PortableGit-2.30.0-64-bit/
+/src-tauri/spigot-1.16.5.jar
+/src-tauri/Bukkit/
+/src-tauri/BuildData/
+/src-tauri/apache-maven-3.6.0/

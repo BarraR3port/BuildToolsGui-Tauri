@@ -3,20 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build --debug",
+    "build:app": "next build && next export -o out && yarn run tauri build",
     "dev": "next dev",
     "build": "next build",
+    "export": "next export -o out",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rimraf .next out ./src-tauri/target"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^6.0.7",
+    "@mantine/hooks": "^6.0.7",
+    "@mantine/next": "^6.0.7",
+    "@mantine/notifications": "^6.0.7",
+    "@mantine/nprogress": "^6.0.7",
+    "@tabler/icons-react": "^2.16.0",
+    "@tauri-apps/api": "^1.2.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
+    "axios": "^1.3.5",
+    "cheerio": "^1.0.0-rc.12",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "tauri-plugin-upload-api": "https://github.com/tauri-apps/tauri-plugin-upload",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.2.3",
+    "@types/download": "^8.0.2"
   }
 }
